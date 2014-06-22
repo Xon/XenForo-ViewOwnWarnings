@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<addon addon_id="SVViewOwnWarnings" title="SV: View own warnings" version_string="1.0.0" version_id="0" url="http://forums.sufficientvelocity.com" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
+<addon addon_id="SVViewOwnWarnings" title="SV: View own warnings" version_string="1.0.1" version_id="1" url="http://forums.sufficientvelocity.com" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
   <admin_navigation/>
   <admin_permissions/>
   <admin_style_properties/>
@@ -27,7 +27,7 @@
   <public_template_modifications>
     <modification template="warning_info" modification_key="SVViewOwnWarnings_member_warn" description="Only show parts of the warning to users." execution_order="10" enabled="1" action="str_replace">
       <find><![CDATA[<xen:if is="{$warning.notes}"><div class="muted">{xen:helper bodytext, $warning.notes}</div></xen:if>]]></find>
-      <replace><![CDATA[<xen:if is="{$canViewWarningDetails}">$0</xen:if>]]></replace>
+      <replace><![CDATA[<xen:if is="{$visitor.permissions.general.viewWarning}">$0</xen:if>]]></replace>
     </modification>
   </public_template_modifications>
   <bb_code_media_sites/>

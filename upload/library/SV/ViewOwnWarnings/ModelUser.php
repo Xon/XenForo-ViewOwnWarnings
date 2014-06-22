@@ -1,6 +1,8 @@
 <?php
 class SV_ViewOwnWarnings_ModelUser extends XFCP_SV_ViewOwnWarnings_ModelUser
 {
+    public static $warning_user_id;
+
 	public function canViewWarnings(&$errorPhraseKey = '', array $viewingUser = null)
 	{
 		$this->standardizeViewingUserReference($viewingUser);
@@ -12,6 +14,10 @@ class SV_ViewOwnWarnings_ModelUser extends XFCP_SV_ViewOwnWarnings_ModelUser
 				return true;
 			}
 		}
+        else if (@self::$warning_user_id && self::$warning_user_id == $viewingUser['user_id'])
+        {
+            return true;
+        }
 		
 		return parent::canViewWarnings($errorPhraseKey, $viewingUser);
 	}
