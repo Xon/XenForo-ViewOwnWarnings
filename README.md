@@ -1,6 +1,9 @@
 Xenforo-SVViewOwnWarnings
 ======================
 
-Allow users to view thier own warnings, and find which posts where warned. Note; exposes which moderator infracted them. 
+Allow users to view thier own warnings, and find which posts where warned. 
 
-Simplish template change if this is undesired. 
+New Permission to control if a user can see how infracted them.
+
+- View Warning Issuer.
+
