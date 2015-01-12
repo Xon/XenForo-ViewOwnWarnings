@@ -1,7 +1,7 @@
 <?php
 class SV_ViewOwnWarnings_XenForo_Model_User extends XFCP_SV_ViewOwnWarnings_XenForo_Model_User
 {
-    public static $warning_user_id;
+    public static $warning_user_id = null;
 
     public function canViewWarnings(&$errorPhraseKey = '', array $viewingUser = null)
     {
@@ -14,7 +14,7 @@ class SV_ViewOwnWarnings_XenForo_Model_User extends XFCP_SV_ViewOwnWarnings_XenF
                 return true;
             }
         }
-        else if (isset(self::$warning_user_id) && self::$warning_user_id == $viewingUser['user_id'])
+        else if (!empty(self::$warning_user_id) && self::$warning_user_id == $viewingUser['user_id'])
         {
             return true;
         }
