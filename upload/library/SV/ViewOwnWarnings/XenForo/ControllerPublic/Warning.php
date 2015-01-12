@@ -21,13 +21,8 @@ class SV_ViewOwnWarnings_XenForo_ControllerPublic_Warning extends XFCP_SV_ViewOw
 
         $ret = parent::actionIndex();
 
-        SV_ViewOwnWarnings_XenForo_Model_User::$warning_user_id = null;
+        unset(SV_ViewOwnWarnings_XenForo_Model_User::$warning_user_id);
 
         return $ret;
-    }	 
+    }
 }
-
-
-
-
-

@@ -2,22 +2,15 @@
 
 class SV_ViewOwnWarnings_Listener
 {
-    public static function loadClassModel($class, &$extend)
+    const AddonNameSpace = 'SV_ViewOwnWarnings';
+
+    public static function load_class($class, &$extend)
     {
         switch($class)
         {
-            case 'XenForo_Model_User':		
-                $extend[] = 'SV_ViewOwnWarnings_XenForo_Model_User';
-                break;
-        }
-    }
-
-    public static function loadClass($class, &$extend)
-    {    
-        switch($class)
-        {
-            case 'XenForo_ControllerPublic_Warning':		
-                $extend[] = 'SV_ViewOwnWarnings_XenForo_ControllerPublic_Warning';
+            case 'XenForo_ControllerPublic_Warning':
+            case 'XenForo_Model_User':
+                $extend[] = self::AddonNameSpace . '_'. $class;
                 break;
         }
     }
